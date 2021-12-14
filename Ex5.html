@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm</title>
+    <h2>Nhập điểm</h2>
+</head>
+<body>
+<input type="text" id="exam" placeholder="Điểm kiểm tra">Hệ số 1<br>
+<input type="text" id="midTest" placeholder="Điểm giữa kỳ">Hệ số 2<br>
+<input type="text" id="finTest" placeholder="Điểm cuối kỳ">Hệ số 3<br>
+<input type="button" value="Xếp loại" onclick="getAverage()"><br>
+<input id="averScore" type="text" value="Trung bình">
+<input id="degree" type="text" value="Xếp loại">
+<script>
+    function getAverage() {
+        let examScore = document.getElementById('exam');
+        let midScore = document.getElementById('midTest');
+        let finScore = document.getElementById('finTest');
+        let averScore = (parseFloat(examScore.value) + parseFloat(midScore.value)*2 + parseFloat(finScore.value)*3)/6;
+        console.log(examScore);
+        console.log(midScore);
+        console.log(finScore)
+
+        let degree;
+        if (averScore >= 8.0) {
+            degree = 'Giỏi';
+        } else if (averScore >= 6.5) {
+            degree = 'Khá';
+        } else if (averScore >= 5.5) {
+            degree = 'Trung Bình';
+        } else {
+            degree = 'Kém';
+        }
+        document.getElementById('averScore').value = + averScore;
+        document.getElementById('degree').value ="Xếp loại:" + degree;
+    }
+</script>
+</body>
+</html>
